@@ -1,0 +1,274 @@
+/* Main Rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-family: 'Roboto', 'Noto Sans Arabic', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+body {
+  background-color: #497ee6;
+  padding: 60px 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  row-gap: 30px;
+}
+ul {
+  list-style: none;
+}
+
+/* Main Styling */
+/* Commont Styling */
+body > div {
+  width: 320px;
+  max-width: 100%;
+  margin-left: 60px;
+  display: inline-block;
+  background-color: #f2f2f1;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .3);
+}
+body > div > header {
+  padding: 20px;
+  background-color: #e3e3e2;
+  color: #444;
+  font-size: .9em;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+}
+body > div.tasks-box > header .num {
+  flex: 1;
+  text-align: right;
+}
+body > div > header h2 {
+  font-weight: 500;
+  line-height: 20px;
+}
+body > div > ul {
+  margin: 30px 0;
+  padding: 0 20px;
+  overflow: auto;
+}
+body > div > ul > li {
+  min-width: 100%;
+  line-height: 20px;
+}
+form {
+  padding: 0 20px 30px;
+  display: flex;
+}
+form > * {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+form button {
+  width: 30px;
+  text-align: left;
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #555;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+}
+form input {
+  position: relative;
+  width: 100%;
+  padding: 5px 0;
+  flex: 1;
+  font-size: 1.2em;
+  color: #333;
+  border-bottom: 1px solid #555;
+}
+form input::placeholder {
+  color: #bdbdbd;
+}
+div.msg {
+  text-align: center;
+  font-size: 1.4em;
+  color: #999;
+}
+
+/* Lists Styling */
+.lists-box {
+  position: relative;
+}
+.lists-box .info {
+  position: absolute;
+  color: #fff;
+  font-size: .7em;
+  text-align: center;
+  bottom: 0;
+  transform: translateY(100%);
+  padding: 15px 20px;
+  line-height: 1.6;
+}
+.lists-box .lists > li {
+  background-color: #eee;
+  color: #444;
+  padding: 10px 15px;
+  margin-bottom: 5px;
+  transition: padding .2s, background .2s;
+  cursor: pointer;
+}
+.lists-box .lists > li.active {
+  padding-left: 30px;
+  background-color: #e6e6e6;
+  font-weight: 500;
+}
+
+/* Tasks Styling */
+.tasks-box {
+  position: relative;
+  margin-bottom: 40px;
+}
+.tasks-box .tasks > li {
+  border-bottom: 1px solid #ddd;
+}
+.tasks-box .tasks > li {
+  position: relative;
+  padding: 10px 0;
+  cursor: pointer;
+  color: #555;
+}
+.tasks-box .tasks > li i {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity .2s;
+}
+.tasks-box .tasks > li:hover i {
+  opacity: 1;
+}
+.tasks-box .tasks > li input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #555;
+  margin-bottom: -2px;
+  margin-right: 10px;
+  transition: border-color .2s;
+  outline: none;
+  pointer-events: none;
+}
+.tasks-box .tasks > li input[type=checkbox]::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: transparent;
+  transform: translate(-50%, -50%);
+  transition: background .2s;
+}
+.tasks-box .tasks > li input[type=checkbox]:checked {
+  border-color: #999;
+}
+.tasks-box .tasks > li input[type=checkbox]:checked::before {
+  background-color: #999;
+}
+.tasks-box .tasks > li span {
+  position: relative;
+  transition: color .2s;
+  pointer-events: none;
+}
+.tasks-box .tasks > li span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  transform: scale(0, 1.2) translateY(-50%);
+  width: calc(100% + 4px);
+  height: 1px;
+  background-color: #555;
+  transform-origin: center right;
+  transition: background .2s, transform .2s;
+}
+.tasks-box .tasks > li input[type=checkbox]:checked + span {
+  color: #999;
+}
+.tasks-box .tasks > li input[type=checkbox]:checked + span::before {
+  transform-origin: center left;
+  transform: scale(1, 1) translateY(-50%);
+}
+
+/* Controls */
+.tasks-box .controls {
+  width: 100%;
+  color: #fff;
+  position: absolute;
+  bottom: 0;
+  transform: translateY(100%);
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.tasks-box .controls span {
+  font-size: .9em;
+  cursor: pointer;
+}
+.important {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  font-weight: bold;
+  transform: translateX(-50%);
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  padding: 0 20px;
+}
+
+/* Media Queries */
+@media (max-width: 808px) {
+  body {
+    flex-direction: column;
+    align-items: center;
+  }
+  body > div {
+    margin-left: 0;
+  }
+  .lists-box {
+    position: relative;
+    margin-bottom: 50px;
+  }
+  .important { 
+    display: none;
+  }
+}
+@media (max-width: 327px) {
+  .tasks-box {
+    margin-bottom: 70px;
+  }
+  .tasks-box .controls {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    text-align: center;
+  }
+}
+
+/* Js Classes */
+.hide {
+  display: none;
+}
+.tasks-box .tasks > li input[type=text] {
+  font-size: 1.2em;
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #333;
+}

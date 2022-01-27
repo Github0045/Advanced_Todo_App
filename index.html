@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./tasks.ico" type="image/x-icon">
+  <title>Advanced Task App</title>
+  <!-- Google Fonts "Roboto" -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Google Fonts "Noto Sans Arabic" -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="./css/all.min.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <!-- Lists Template -->
+  <div class="lists-box">
+    <header>
+      <h2>My Lists</h2>
+      <span class="num"></span>
+    </header>
+    <ul class="lists"></ul>
+    <form id="addLists" class="add">
+      <button type="submit" class="fas fa-plus"></button>
+      <input id="listsInput" type="text" placeholder="Add New List..." autocomplete="off" spellcheck="false" data-remain="50" autofocus>
+    </form>
+    <p class="info">Right Click On A Task To Delete It, Left Click On A Task To Check It</p>
+  </div>
+  <!-- Tasks Template -->
+  <div class="tasks-box hide">
+    <header>
+      <h2></h2>
+      <span class="num"></span>
+    </header>
+    <ul class="tasks"></ul>
+    <form id="addTasks" class="add">
+      <button type="submit" class="fas fa-plus"></button>
+      <input id="tasksInput" type="text" placeholder="Add New Task..." autocomplete="off" spellcheck="false">
+    </form>
+    <div class="controls">
+      <span id="clearComplete">Clear Completed Tasks</span>
+      <span id="deleteList">Delete List</span>
+    </div>
+  </div>
+  <span class="important">﴾ وَلَا تَقُولَنَّ لِشَيْءٍ إِنِّي فَاعِلٌ ذَلِكَ غَدًا * إِلَّا أَنْ يَشَاءَ اللَّهُ ﴿</span>
+  <!-- Js Script -->
+  <script src="./script.js"></script>
+</body>
+</html>
