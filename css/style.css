@@ -191,8 +191,8 @@ div.msg {
   left: -2px;
   transform: scale(0, 1.2) translateY(-50%);
   width: calc(100% + 4px);
-  height: 1px;
-  background-color: #555;
+  height: 2px;
+  background-color: #999;
   transform-origin: center right;
   transition: background .2s, transform .2s;
 }

@@ -133,17 +133,19 @@ function createEditFeild(e) {
   parent.appendChild(inputEl);
   inputEl.select();
   window.addEventListener('keyup', e => {
-    if (e.key === 'Enter') {
-      // Update The "mainArr"
-      mainArr[currListIdx].tasksArr[mainArr[currListIdx].tasksArr.findIndex(item => item.id === parent.dataset.id)].task = inputEl.value;
-      // Update The LocalStorage
-      saveData();
-      // Update The Dom
-      updateTasksDom();
-    }
+    if (e.key === 'Enter') commonFunc();
   });
   // Remove The Edit Input Function
-  inputEl.addEventListener('blur', () => updateTasksDom());
+  inputEl.addEventListener('blur', () => commonFunc());
+  // Commen Function
+  function commonFunc() {
+    // Update The "mainArr"
+    mainArr[currListIdx].tasksArr[mainArr[currListIdx].tasksArr.findIndex(item => item.id === parent.dataset.id)].task = inputEl.value;
+    // Update The LocalStorage
+    saveData();
+    // Update The Dom
+    updateTasksDom();
+  }
 }
 
 
