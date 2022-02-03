@@ -90,9 +90,15 @@ function updateTasksDom() {
   taskHeading.textContent = mainArr[currListIdx].listName;
   // Clear The List Before Adding The Data
   listOfTasks.textContent = '';
+  // Helping Variables
+  let tasksArr = mainArr[currListIdx].tasksArr;
+  let filteredArr = mainArr[currListIdx].tasksArr.filter(tasks => !tasks.completed);
+  tasksArr.forEach(item => {
+    if (item.completed) filteredArr.push(item);
+  });
   // Looping Throw The Data
-  mainArr[currListIdx].tasksArr.forEach(item => {
-    // Create HTML Template
+  filteredArr.forEach(item => {
+    // Create HTML Templates
     let html = `
       <li data-id="${item.id}">
         <input type="checkbox" ${item.completed ? 'checked' : ''}>
@@ -189,6 +195,8 @@ listOfTasks.addEventListener('click', e => {
     };
     // Update The LocalStorage
     saveData();
+    counter(listOfTasks, 'Tasks');
+    setTimeout(() => updateTasksDom(), 500);
   }
 });
 
@@ -228,7 +236,8 @@ deleteListBtn.addEventListener('click', () => {
 
 // Count Lists And Tasks
 function counter(el, word) {
-  el.parentElement.querySelector('header .num').textContent = `${el.querySelectorAll('li').length} ${word}`;
+  el.parentElement.querySelector('header .num')
+  .textContent = `${el.classList.contains('tasks') ? el.querySelectorAll('li input:not(:checked)').length : el.querySelectorAll('li').length} ${word}`;
 }
 
 // Saving Data To LocalStorage
